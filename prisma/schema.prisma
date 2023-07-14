@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Lotes {
+  id        Int       @id
+  nome      String
+  nome_lote Int       @unique
+  ativo     Boolean
+  criado_em DateTime  @default(now())
+  Boletos   Boletos[]
+
+  @@index([nome_lote])
+  @@map("lotes")
+}
+
+model Boletos {
+  id              Int      @id @default(autoincrement())
+  nome_sacado     String
+  id_lote         Int
+  lote            Lotes    @relation(fields: [id_lote], references: [id])
+  valor           Decimal
+  linha_digitavel String
+  ativo           Boolean
+  criado_em       DateTime @default(now())
+
+  @@map("boletos")
+}
