@@ -15,7 +15,7 @@ Node.js (versão 18.16.0)
 
 ## Configuração
 
-Clone o repositório: git clone https://github.com/agnaldocordeiro/nome-do-repositorio.git
+Clone o repositório: git clone https://github.com/AgnaldoCordeiro/desafio-backend-nodejs-green-acesso
 Instale as dependências: npm install
 Configure as variáveis de ambiente no arquivo .env com a informação: DATABASE_URL="file:./dev.db"
 
